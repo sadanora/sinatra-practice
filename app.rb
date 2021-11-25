@@ -35,17 +35,10 @@ get '/' do
   erb :index
 end
 
-get '/new' do
-  @page_title = "new | #{APP_TITLE}"
-
-  erb :new
-end
-
 post '/new' do
   id = SecureRandom.urlsafe_base64
   build_memo(id, params[:memo_title], params[:memo_detail], "./public/memos/#{id}.json")
 
-  erb :new
   redirect to '/'
 end
 
