@@ -1,0 +1,17 @@
+<h2>メモの編集</h2>
+<form action="/memos/<%= @memo['id'] %>" method="post">
+  <ul>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <li>
+      <label for="title"><h3>タイトル</h3></label>
+      <input type="text" id="title" name="memo_title" value="<%= @memo['title'] %>">
+    </li>
+    <li>
+      <label for="detail"><h3>詳細</h3></label>
+      <textarea id="detail" name="memo_detail"><%= @memo['detail'] %></textarea>
+    </li>
+    <li>
+      <input type="submit" value="保存">
+    </li>
+  </ul>
+</form>

@@ -1,0 +1,17 @@
+<h2>メモの内容</h2>
+<h3>タイトル</h3>
+<p><%= @memo_title %><p>
+<h3>詳細</h3>
+<p><%= @memo_detail %><p>
+
+<ul>
+  <li>
+    <a href="/memos/<%= @memo_id %>/edit">編集</a>
+  </li>
+  <li>
+    <form action="/memos/<%= @memo_id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="削除">
+    </form>
+  </li>
+</ul>
