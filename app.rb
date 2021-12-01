@@ -14,6 +14,7 @@ helpers do
 end
 
 def build_memo(id, title, detail, file_path)
+  Dir.mkdir('./public/memos', 0o755) unless Dir.exist?('./public/memos')
   memo = JSON.pretty_generate({ id: id, title: title, detail: detail })
   File.open(file_path, 'w', 0o755) { |f| f.print memo }
 end
@@ -26,8 +27,7 @@ get '/' do
   @memos = []
   file_names = Dir.glob('*.json', base: './public/memos/')
   file_names.each do |file_name|
-    hash = json_to_hash("./public/memos/#{file_name}")
-    @memos.push(hash)
+    @memos.push(json_to_hash("./public/memos/#{file_name}"))
   end
 
   @page_title = APP_TITLE.to_s
@@ -45,8 +45,8 @@ end
 get '/memos/:memo_id' do
   @memo_id = params[:memo_id]
   memo = json_to_hash("./public/memos/#{@memo_id}.json")
-  @memo_title = h(memo['title'])
-  @memo_detail = h(memo['detail'])
+  @memo_title = memo['title']
+  @memo_detail = memo['detail']
 
   @page_title = "#{@memo_title} | #{APP_TITLE}"
 
