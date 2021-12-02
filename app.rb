@@ -43,12 +43,9 @@ post '/new' do
 end
 
 get '/memos/:memo_id' do
-  @memo_id = params[:memo_id]
-  memo = json_to_hash("./public/memos/#{@memo_id}.json")
-  @memo_title = memo['title']
-  @memo_detail = memo['detail']
+  @memo = json_to_hash("./public/memos/#{params[:memo_id]}.json")
 
-  @page_title = "#{@memo_title} | #{APP_TITLE}"
+  @page_title = "#{@memo['title']} | #{APP_TITLE}"
 
   erb :memo
 end
@@ -68,8 +65,7 @@ patch '/memos/:memo_id' do
 end
 
 delete '/memos/:memo_id' do
-  @memo_id = params[:memo_id]
-  File.delete("./public/memos/#{@memo_id}.json")
+  File.delete("./public/memos/#{params[:memo_id]}.json")
 
   redirect to '/'
 end
