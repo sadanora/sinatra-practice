@@ -1,0 +1,24 @@
+<h2>📝メモを追加する</h2>
+<form action="/new" method="post">
+  <ul>
+    <li>
+      <label for="title">title</label>
+      <input type="text" id="title" name="memo_title">
+    </li>
+    <li>
+      <label for="detail">detail</label>
+      <textarea id="detail" name="memo_detail"></textarea>
+    </li>
+    <li>
+      <input type="submit" value="追加">
+    </li>
+  </ul>
+</form>
+<h2>保存済みのメモ一覧</h2>
+<ul>
+  <% @memos.each do |m| %>
+    <li>
+      <a href="/memos/<%= m['id'] %>"><%= h(m['title']) %></a>
+    </li>
+  <% end %>
+</ul>
