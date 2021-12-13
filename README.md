@@ -4,7 +4,7 @@
 # 開発環境
 - ruby 2.7.2(rbenv1.1.2)
 - Bundler version 2.2.31
-- psql (PostgreSQL) 14.1
+- PostgreSQL 14.1
 
 # 利用方法
 ## データベースの用意
@@ -12,7 +12,7 @@
 - テーブル名は`memos`にしてください。
 - 開発者は以下のDDL文でテーブルを作成しています。
 
-  `CREATE TABLE memos ( id serial NOT NULL, title VARCHAR(100), detail TEXT, PRIMARY KEY (id));`
+  `CREATE TABLE memos (id serial NOT NULL, title VARCHAR(100), detail TEXT, PRIMARY KEY (id));`
 
 上記のDDL文で作成したテーブルは、以下のようになるはずです。
 ```
@@ -27,8 +27,6 @@ Indexes:
 
 ## リポジトリのクローン、アプリの起動
 1. このリポジトリをクローン
-
-    このリポジトリをクローンしてください。
 
 1. 接続先のデータベース情報の設定
 
