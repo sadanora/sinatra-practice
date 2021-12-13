@@ -2,8 +2,6 @@
 
 require 'sinatra'
 require 'sinatra/reloader'
-require 'json'
-require 'securerandom'
 require 'pg'
 
 APP_TITLE = 'memotra🖋🎩'
