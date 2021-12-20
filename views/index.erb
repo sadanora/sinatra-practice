@@ -16,9 +16,9 @@
 </form>
 <h2>保存済みのメモ一覧</h2>
 <ul>
-  <% @memos.each do |m| %>
-    <li>
-      <a href="/memos/<%= m['id'] %>"><%= h(m['title']) %></a>
-    </li>
-  <% end %>
+<% @memos.each do |m| %>
+  <li>
+    <a href="/memos/<%= m['id'] %>"><%= h(m['title']) %></a>
+  </li>
+<% end %>
 </ul>
